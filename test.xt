@@ -1,0 +1,18 @@
+!~ in zen text, every line written must start with an exclamation point, so the parser picks up the commands! ~
+!PRINT "1234"
+!print "hello"
+!~this is a command, and above, is a printer, and below, is a macro, something to run ~
+~begin macro~!%
+#!/bin/bash
+echo "hello, this is a test!"
+%!~end macro~
+!@nbrk
+!@brk !~this breakpoint does not execute because, it is disabled by the line of code above~
+!print "turning on breakpoints"
+!@ybrk
+!print "breaking points"
+!@brk
+!%
+#!/bin/bash
+ls -n
+%!
